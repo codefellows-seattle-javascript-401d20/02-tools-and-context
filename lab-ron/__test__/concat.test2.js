@@ -13,6 +13,7 @@ describe('#concat', () => {
     expect(concat('Hello', 3)).toBe(['H', 'e', 'l', 'l', 'o', 3]);
     expect(concat(3, 9)).toBe([3, 9]);
     expect(concat('Hello World')).toBe(['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']);
+    expect(concat('Hello World')).toBe(['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']);
   });
 
 });
