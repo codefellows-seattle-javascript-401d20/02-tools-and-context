@@ -49,12 +49,18 @@ describe('#reduce', () => {
   });
 });
 
-// describe('#slice', () => {
-//   test('slice should return an error message with ', () => {
-//     expect(fp.slice()).toEqual();
-//   });
-//
-//   test('slice should return  with ', () => {
-//     expect(fp.slice()).toEqual();
-//   });
-// });
+describe('#slice', () => {
+  test('slice should return an error message with non-array or empty array arguments', () => {
+    expect(fp.slice()).toEqual('You must enter a non-empty array to slice!');
+    expect(fp.slice([], 1, 3)).toEqual('You must enter a non-empty array to slice!');
+    expect(fp.slice(20, 1, 3)).toEqual('You must enter a non-empty array to slice!');
+    expect(fp.slice('hi', 1, 3)).toEqual('You must enter a non-empty array to slice!');
+  });
+
+  test('slice should return an array with non-empty array arguments', () => {
+    expect(fp.slice([1,3,6,10], 1, 3)).toEqual([ 3, 6 ]);
+    expect(fp.slice(['katherine','amy','usagi','yuri'], 1, 3)).toEqual([ 'amy', 'usagi' ]);
+    expect(fp.slice([true,false,false,false,true], 3, 5)).toEqual([ false, true ]);
+    expect(fp.slice(['hi ',['katherine',' amy',' cat'],'how are you','today'], 1, 3)).toEqual([ [ 'katherine', ' amy', ' cat' ], 'how are you' ]);
+  });
+});

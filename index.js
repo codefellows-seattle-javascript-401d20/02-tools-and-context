@@ -33,4 +33,16 @@ const fp = require('./lib/fp.js');
 // console.log(fp.reduce());
 // console.log(fp.reduce([], (p, c) => p + c));
 // console.log(fp.reduce(453, (p, c) => p + c));
-console.log(fp.reduce('hello', (p, c) => p + c));
+// console.log(fp.reduce('hello', (p, c) => p + c));
+
+// valid
+// console.log(fp.slice([1,3,6,10], 1, 3));
+// console.log(fp.slice(['katherine','amy','usagi','yuri'], 1, 3));
+// console.log(fp.slice([true,false,false,false,true], 3, 5));
+// console.log(fp.slice(['hi ',['katherine',' amy',' cat'],'how are you','today'], 1, 3));
+
+// invalid
+// console.log(fp.slice());
+// console.log(fp.slice([], 1, 3));
+// console.log(fp.slice(20, 1, 3));
+// console.log(fp.slice('hi', 1, 3));
