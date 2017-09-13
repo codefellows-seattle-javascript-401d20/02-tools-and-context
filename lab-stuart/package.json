@@ -11,5 +11,8 @@
     "test": "jest --coverage -i"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.0.2"
+  }
 }
