@@ -6,7 +6,11 @@ fp.map = (cb, ctx) => {
   return Array.prototype.map.call(ctx, cb);
 };
 
-fp.filter = (cb, ctx) =>{
+fp.reduce = (...args) => {
+  let collection = args.splice(-1)[0];
+  return Array.prototype.reduce.apply(collection, args);
+};
+fp.filter = (cb, ctx) => {
   return Array.prototype.filter.call(ctx, cb);
 };
 

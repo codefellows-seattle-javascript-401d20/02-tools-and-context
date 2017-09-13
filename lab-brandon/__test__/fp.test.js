@@ -18,14 +18,34 @@ describe('#map', ()=>{
   });
 });
 
-// describe('#filter', ()=>{
-//   test('should double numbers', ()=>{
-//     let result = fp.map;
-//     expect(fp.map(n => n.toUpperCase(), 'hello')).toEqual(['H', 'E', 'L', 'L', 'O']);
-//     expect(fp.map()).toEqual('Enter an array or string and its callback');
-//     expect(fp.map(54)).toEqual('Enter an array or string and its callback');
-//   });
-//   test('should uppsercase chars', ()=>{
-//
-//   });
-// });
+describe('#reduce', ()=>{
+  test('should sum numbers', ()=>{
+    let result = fp.reduce((result, num) => result + num[1,2,3]);
+    expect(result).toEqual(6);
+  });
+  test('should sum numbers', () => {
+    let notes = [
+      {
+        title:'hello',
+        votes:2,
+      },
+      {
+        title:'dope',
+        votes:5,
+      },
+      {
+        title:'cool',
+        votes:5,
+      },
+    ];
+    {
+      let result = fp.reduce((result, note) => {
+        result.titles.push(note.titles);
+        result.totalVotes += note.votes;
+        return result;
+      }, {titles: [], totalVotes:0}, notes);
+      expect(result.title).toEqual(['hello', 'dope', 'cool']);
+      expect(result.totalVotes).toEqual(12);
+    }
+  });
+});
