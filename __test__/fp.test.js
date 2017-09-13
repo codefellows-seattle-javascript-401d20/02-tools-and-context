@@ -4,9 +4,9 @@ const fp = require('../lib/fp.js');
 
 describe('#map', () => {
   test('map should return an error message with non-array and non-string arguments', () => {
-    expect(fp.map((n) => n.toLowerCase(), true)).toEqual('You must enter an array or string and its callback!');
-    expect(fp.map()).toEqual('You must enter an array or string and its callback!');
-    expect(fp.map(234)).toEqual('You must enter an array or string and its callback!');
+    expect(() => fp.map((n) => n.toLowerCase(), true)).toThrow('You must enter an array or string and its callback!');
+    expect(() => fp.map()).toThrow('You must enter an array or string and its callback!');
+    expect(() => fp.map(234)).toThrow('You must enter an array or string and its callback!');
   });
 
   test('map should return an array with array or string arguments', () => {
@@ -18,9 +18,9 @@ describe('#map', () => {
 
 describe('#filter', () => {
   test('filter should return an error message with non-array or empty array arguments', () => {
-    expect(fp.filter()).toEqual('You must enter a non-empty array and its callback!');
-    expect(fp.filter((n) => n.length > 6)).toEqual('You must enter a non-empty array and its callback!');
-    expect(fp.filter((n) => n > 6, [])).toEqual('You must enter a non-empty array and its callback!');
+    expect(() => fp.filter()).toThrow('You must enter a non-empty array and its callback!');
+    expect(() => fp.filter((n) => n.length > 6)).toThrow('You must enter a non-empty array and its callback!');
+    expect(() => fp.filter((n) => n > 6, [])).toThrow('You must enter a non-empty array and its callback!');
   });
 
   test('filter should return an array with non-empty array arguments', () => {
@@ -34,10 +34,10 @@ describe('#filter', () => {
 
 describe('#reduce', () => {
   test('reduce should return an error message with non-array or empty array arguments', () => {
-    expect(fp.reduce()).toEqual('You must enter a non-empty array to reduce!');
-    expect(fp.reduce([], (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
-    expect(fp.reduce(453, (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
-    expect(fp.reduce('hello', (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
+    expect(() => fp.reduce()).toThrow('You must enter a non-empty array to reduce!');
+    expect(() => fp.reduce([], (p, c) => p + c)).toThrow('You must enter a non-empty array to reduce!');
+    expect(() => fp.reduce(453, (p, c) => p + c)).toThrow('You must enter a non-empty array to reduce!');
+    expect(() => fp.reduce('hello', (p, c) => p + c)).toThrow('You must enter a non-empty array to reduce!');
   });
 
   test('reduce should return accumulated data with non-empty array arguments', () => {
@@ -51,10 +51,10 @@ describe('#reduce', () => {
 
 describe('#slice', () => {
   test('slice should return an error message with non-array or empty array arguments', () => {
-    expect(fp.slice()).toEqual('You must enter a non-empty array to slice!');
-    expect(fp.slice([], 1, 3)).toEqual('You must enter a non-empty array to slice!');
-    expect(fp.slice(20, 1, 3)).toEqual('You must enter a non-empty array to slice!');
-    expect(fp.slice('hi', 1, 3)).toEqual('You must enter a non-empty array to slice!');
+    expect(() => fp.slice()).toThrow('You must enter a non-empty array to slice!');
+    expect(() => fp.slice([], 1, 3)).toThrow('You must enter a non-empty array to slice!');
+    expect(() => fp.slice(20, 1, 3)).toThrow('You must enter a non-empty array to slice!');
+    expect(() => fp.slice('hi', 1, 3)).toThrow('You must enter a non-empty array to slice!');
   });
 
   test('slice should return an array with non-empty array arguments', () => {
