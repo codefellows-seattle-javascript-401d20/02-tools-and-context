@@ -17,3 +17,22 @@ describe('#filter', () => {
   });
 });
 
+describe('#reduce', () => {
+  test('reduce passes an array of arguments and reduces them to a single value', () => {
+    expect(fp.reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5]
+    )).toEqual(15);
+    expect(fp.reduce((a, b) => a + b, '', ['h', 'e', 'l', 'l', 'o']
+    )).toEqual('hello');
+  });
+});
+
+describe('#slice', () => {
+  test(`slice takes in an array like value and divides into an array ranging between the beginning and end value`, () => {
+    expect(fp.slice(2, 10, 'Alex, Billy, Cassie')).toEqual(['e', 'x', ',', ' ', 'B', 'i', 'l', 'l']);
+    expect(fp.slice(1, 3, [0, 1, 2, 3, 4, 5, 6])).toEqual([1, 2]);
+  });
+});
+
+
+
+
