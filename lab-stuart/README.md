@@ -1,7 +1,3 @@
-# Lab 1 - lab-stuart
+# Lab 2 | lab-stuart
 
-Contains two modules 'greet' and 'arithmetic' in lib. There are matching tests in __test__. These ensure that parameters are appropriate, or null if not. 
-
-greet() expects one param of number type and returns string val. 
-
-arithmetic.add() and arithmetic.sub() expect two params of number type and return number vals.
+Contains one module 'fp' with methods 'map', 'filter', 'reduce', 'concat', 'slice'. There are tests for these in __test__. These ensure that parameters are appropriate, or return messages to indicate if not. 
