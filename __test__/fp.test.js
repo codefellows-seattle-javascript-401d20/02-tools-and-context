@@ -17,13 +17,13 @@ describe('#map', () => {
 });
 
 describe('#filter', () => {
-  test('filter should return an error message with non-array arguments', () => {
+  test('filter should return an error message with non-array or empty array arguments', () => {
     expect(fp.filter()).toEqual('You must enter a non-empty array and its callback!');
     expect(fp.filter((n) => n.length > 6)).toEqual('You must enter a non-empty array and its callback!');
     expect(fp.filter((n) => n > 6, [])).toEqual('You must enter a non-empty array and its callback!');
   });
 
-  test('filter should return an array with array arguments', () => {
+  test('filter should return an array with non-empty array arguments', () => {
     expect(fp.filter((n) => n.length > 6, ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'])).toEqual([ 'exuberant', 'destruction', 'present' ]);
     expect(fp.filter((n) => n > 6, [10, 12, 3, 9, 2, -9])).toEqual([ 10, 12, 9 ]);
     expect(fp.filter((n) => n === true, [true, 12, 3, 9, 2, -9])).toEqual([ true ]);
@@ -31,3 +31,30 @@ describe('#filter', () => {
       [ 'hi', 'how', 'are', 'you', 'doing', 'today', '?' ] ]);
   });
 });
+
+describe('#reduce', () => {
+  test('reduce should return an error message with non-array or empty array arguments', () => {
+    expect(fp.reduce()).toEqual('You must enter a non-empty array to reduce!');
+    expect(fp.reduce([], (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
+    expect(fp.reduce(453, (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
+    expect(fp.reduce('hello', (p, c) => p + c)).toEqual('You must enter a non-empty array to reduce!');
+  });
+
+  test('reduce should return accumulated data with non-empty array arguments', () => {
+    expect(fp.reduce([3,4,7], (p, c) => p + c)).toEqual(14);
+    expect(fp.reduce(['k','a','t','h','e','r','i','n','e'], (p, c) => p + c)).toEqual('katherine');
+    expect(fp.reduce(['katherine ate ',2,' cookies'], (p, c) => p + c)).toEqual('katherine ate 2 cookies');
+    expect(fp.reduce(['The answer is ',true], (p, c) => p + c)).toEqual('The answer is true');
+    expect(fp.reduce(['hi ',['katherine',' amy',' cat']], (p, c) => p + c)).toEqual('hi katherine, amy, cat');
+  });
+});
+
+// describe('#slice', () => {
+//   test('slice should return an error message with ', () => {
+//     expect(fp.slice()).toEqual();
+//   });
+//
+//   test('slice should return  with ', () => {
+//     expect(fp.slice()).toEqual();
+//   });
+// });
