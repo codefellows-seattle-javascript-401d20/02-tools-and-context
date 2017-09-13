@@ -1,21 +1,18 @@
 {
-  "name": "02-tools-and-context",
-  "version": "1.0.0",
-  "description": "![cf](https://i.imgur.com/7v5ASc8.png) 02: Tools and Context ======",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^4.6.1",
-    "test": "jest --runInBand"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wolfssy/02-tools-and-context.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wolfssy/02-tools-and-context/issues"
-  },
-  "homepage": "https://github.com/wolfssy/02-tools-and-context#readme"
+ "name": "02-tools-and-context",
+ "version": "1.0.0",
+ "description": "Contains two modules 'greet' and 'arithmetic' in lib. There are matching tests in __test__. These ensure that parameters are appropriate, or null if not.",
+ "main": "index.js",
+ "directories": {
+   "lib": "lib"
+ },
+ "scripts": {
+   "lint": "eslint .",
+   "test": "jest --runInBand"
+ },
+ "author": "",
+ "license": "ISC",
+ "devDependencies": {
+   "jest": "^21.0.2"
+ }
 }
