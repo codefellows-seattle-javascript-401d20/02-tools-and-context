@@ -32,13 +32,15 @@ fp.filter = (cb, ctx) => {
 
 fp.reduce = (cb, init, ctx) => {
 
+  let args = [cb, init];
+
   if (typeof cb !== 'function')
     throw new Error(fp.errors.reduceErr);
 
   if (typeof ctx !== 'object' || ctx === null) // Edge case: null is considered an object...
     throw new Error(fp.errors.reduceErr);
 
-  return Array.prototype.reduce.call(ctx, cb, init);
+  return Array.prototype.reduce.apply(ctx, args);
 };
 
 fp.concat = (ctxA, ctxB) => {
@@ -75,6 +77,8 @@ fp.concat = (ctxA, ctxB) => {
 
 fp.slice = (begin, end, ctx) => {
 
+  let args = [begin, end];
+
   if (typeof begin !== 'number' || isNaN(begin)) // Edge case: typeof NaN (not a number) is a number...
     throw new Error(fp.errors.sliceErr);
 
@@ -86,11 +90,11 @@ fp.slice = (begin, end, ctx) => {
 
   // If ctx is an object but not an array
   if (!Array.isArray(ctx))
-    return Array.prototype.slice.call(Object.values(ctx), begin, end).reduce((acc, val, index) => {
+    return Array.prototype.slice.apply(Object.values(ctx), args).reduce((acc, val, index) => {
       acc[index] = val;
       return acc;
     },
       {});
 
-  return Array.prototype.slice.call(ctx, begin, end);
+  return Array.prototype.slice.apply(ctx, args);
 };

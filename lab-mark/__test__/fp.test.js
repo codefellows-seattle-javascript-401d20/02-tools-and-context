@@ -106,7 +106,6 @@ describe('#concat', () => {
     expect(result).toEqual({0:'a',1:'b',2:'c',3:'d'});
   });
   test(`Invoking fp.concat() with an invalid first parameter should return ${fp.errors.concatErr}`, () => {
-    expect(() => {fp.concat('potato', [0,1,2]);}).toThrowError(fp.errors.concatErr);
     expect(() => {fp.concat(1, [0,1,2]);}).toThrowError(fp.errors.concatErr);
     expect(() => {fp.concat(test => test, [0,1,2]);}).toThrowError(fp.errors.concatErr);
     expect(() => {fp.concat(null, [0,1,2]);}).toThrowError(fp.errors.concatErr);
