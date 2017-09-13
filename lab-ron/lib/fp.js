@@ -10,5 +10,10 @@ fp.filter = (cb, ctx) => {
   return Array.prototype.filter.call(ctx, cb);
 };
 
-fp.reduce = () => {};
-fp.slice = () => {};
+fp.reduce = (cb, i, ctx) => {
+  return Array.prototype.reduce.call(ctx, cb, i);
+};
+
+fp.slice = (begin, end, ctx) => {
+  return Array.prototype.slice.call(ctx, begin, end);
+};
