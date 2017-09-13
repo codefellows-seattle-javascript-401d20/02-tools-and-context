@@ -1,0 +1,22 @@
+{
+  "name": "02-tools-and-context",
+  "version": "1.0.0",
+  "description": "day 2 401 lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twandalon/02-tools-and-context.git"
+  },
+  "author": "Anthony Robinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Twandalon/02-tools-and-context/issues"
+  },
+  "homepage": "https://github.com/Twandalon/02-tools-and-context#readme",
+  "dependencies": {
+    "jest": "^21.0.2"
+  }
+}
