@@ -1,0 +1,18 @@
+{
+  "name": "lab-stuart",
+  "version": "1.0.0",
+  "description": "Contains two modules 'greet' and 'arithmetic' in lib. There are matching tests in __test__. These ensure that parameters are appropriate, or null if not.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --coverage -i"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.0.2"
+  }
+}
