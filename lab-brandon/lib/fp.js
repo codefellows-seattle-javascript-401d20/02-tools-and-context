@@ -13,6 +13,10 @@ fp.reduce = (...args) => {
 fp.filter = (cb, ctx) => {
   return Array.prototype.filter.call(ctx, cb);
 };
+fp.slice = (begin, end, ctx) => {
+  return Array.prototype.filter.call(ctx, begin, end);
+};
 
-fp.map((n)=> n * 2, fp.map((n) => n + 1, [1, 2, 3]));
+// fp.map ((n)=> n * 2, fp.map((n) => n + 1, [1, 2, 3]));
+
 // fp.badMap(fp.badMap([1,2,3], (n)=> n + 1), (n) => n * 2);
