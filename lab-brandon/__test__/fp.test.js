@@ -28,11 +28,11 @@ describe('#reduce', ()=>{
 });
 
 describe('#filter', ()=>{
-  test('should pass through each element', ()=>{
+  test('should return all numbers greater than 5 ', ()=>{
     let result = fp.filter(number => number > 5, [1,2,3,4,5,6]);
     expect(result).toEqual([6]);
   });
-  test('should sum numbers', () => {
+  test('should filter out the names with a specific character count', () => {
     let firstResult = fp.filter(l => l.length === 4, ['morty', 'rick', 'summer', 'jerry', 'beth']);
     let secondResult = fp.filter(l => l.length === 5, ['morty', 'rick', 'summer', 'jerry', 'beth']);
     expect(firstResult).toEqual(['rick', 'beth']);
@@ -41,12 +41,9 @@ describe('#filter', ()=>{
 });
 
 describe('#slice', ()=>{
-  test('should sum numbers', ()=>{
-    let result = fp.reduce((result, num) => result + num[1,2,3]);
-    expect(result).toEqual(6);
+  test('should give an array of each value divided by commas', ()=>{
+    let result = fp.slice(1, 5, 'Darth Vader, is Lukes faja');
+    expect(result).toEqual(['a','r','t','h']);
+    expect(fp.slice(0,4, [0, 1, 2, 3, 4, 5])).toEqual([0, 1, 2, 3]);
   });
-  test('should sum numbers', () => {
-    expect(result.title).toEqual(['hello', 'dope', 'cool']);
-    expect(result.totalVotes).toEqual(12);
-  })
 });
