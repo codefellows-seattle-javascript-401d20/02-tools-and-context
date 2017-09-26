@@ -20,57 +20,33 @@ describe('#map', ()=>{
 
 describe('#reduce', ()=>{
   test('should reduce an array of args and return them as a single value', ()=>{
-    expect(fp.reduce((a, b) => a + b, '', ['h', 'e', 'l', 'l', 'o']
-    )).toEqual('hello');
-    expect(fp.reduce((a, b) => a + b, 0, [3, 4, 5, 6, 7]
-    )).toEqual(25);
-    // let result = fp.reduce((result, num) => result + num[1,2,3]);
-    // expect(result).toEqual(6);
+    expect(fp.reduce((a, b) => a + b, '', ['h', 'e', 'l', 'l', 'o'])).toEqual('hello');
+    expect(fp.reduce((a, b) => a + b, 0, [3, 4, 5, 6, 7])).toEqual(25);
+    expect(fp.reduce((result, num) => result + num, 5, [1,2,3])).toEqual(11);
+    expect(fp.reduce((a,b) => a + b, 'heyyy', [1, 2, 3])).toEqual('heyyy123');
   });
-//   test('should sum numbers', () => {
-//     let notes = [
-//       {
-//         title:'hello',
-//         votes:2,
-//       },
-//       {
-//         title:'dope',
-//         votes:5,
-//       },
-//       {
-//         title:'cool',
-//         votes:5,
-//       },
-//     ];
-//     {
-//       let result = fp.reduce((result, note) => {
-//         result.titles.push(note.titles);
-//         result.totalVotes += note.votes;
-//         return result;
-//       }, {titles: [], totalVotes:0}, notes);
-//       expect(result.title).toEqual(['hello', 'dope', 'cool']);
-//       expect(result.totalVotes).toEqual(12);
-//     }
-//   });
-// });
-// describe('#filter', ()=>{
-//   test('should sum numbers', ()=>{
-//     let result = fp.reduce((result, num) => result + num[1,2,3]);
-//     expect(result).toEqual(6);
-//   });
-//   test('should sum numbers', () => {
-//     expect(result.title).toEqual(['hello', 'dope', 'cool']);
-//     expect(result.totalVotes).toEqual(12);
-//   })
-// });
-//
-// describe('#slice', ()=>{
-//   test('should sum numbers', ()=>{
-//     let result = fp.reduce((result, num) => result + num[1,2,3]);
-//     expect(result).toEqual(6);
-//   });
-//   test('should sum numbers', () => {
-//     expect(result.title).toEqual(['hello', 'dope', 'cool']);
-//     expect(result.totalVotes).toEqual(12);
-//   })
+});
+
+describe('#filter', ()=>{
+  test('should pass through each element', ()=>{
+    let result = fp.filter(number => number > 5, [1,2,3,4,5,6]);
+    expect(result).toEqual([6]);
+  });
+  test('should sum numbers', () => {
+    let firstResult = fp.filter(l => l.length === 4, ['morty', 'rick', 'summer', 'jerry', 'beth']);
+    let secondResult = fp.filter(l => l.length === 5, ['morty', 'rick', 'summer', 'jerry', 'beth']);
+    expect(firstResult).toEqual(['rick', 'beth']);
+    expect(secondResult).toEqual(['morty', 'jerry']);
+  });
+});
+
+describe('#slice', ()=>{
+  test('should sum numbers', ()=>{
+    let result = fp.reduce((result, num) => result + num[1,2,3]);
+    expect(result).toEqual(6);
+  });
+  test('should sum numbers', () => {
+    expect(result.title).toEqual(['hello', 'dope', 'cool']);
+    expect(result.totalVotes).toEqual(12);
+  })
 });
