@@ -2,6 +2,13 @@
 ======
 
 ## Submission Instructions
-* wrote a test for map
-* put down fp.map and fp.filter
-* needs tons of work
+* Wrote Describe tests in __test__/fp.test.js to test the map, filter, reduce, and slice functions in lib/fp.js
+* In lib/fp.js contains fp.map, fp.filter, fp.slice, and fp.reduce that is connected to module.exports
+
+## Details
+
+## lib/fp.js
+* fp.map
+* fp.filter
+* fp.reduce
+* fp.splice
