@@ -4,17 +4,13 @@ const fp = require('../lib/fp.js');
 
 describe('#map', ()=>{
   test('should double numbers', ()=>{
-    let result = fp.map((n)=> n * 2, [1,2,3]);
-    expect(result).toEqual([2,4,6]);
+    let result = fp.map((number)=> number * 8, [1,2,3]);
+    expect(result).toEqual([8,16,24]);
 
   });
   test('should uppercase characters', ()=>{
-    let result = fp.map((c)=> c.toUpperCase(), 'hi');
+    let result = fp.map((characters)=> characters.toUpperCase(), 'hi');
     expect(result).toEqual(['H', 'I']);
-  });
-  test('should throw error with non array like object', () => {
-    let runTest = () => fp.map((n) => n * 2, {});
-    expect(runTest).toThrow('expected array like object');
   });
 });
 
